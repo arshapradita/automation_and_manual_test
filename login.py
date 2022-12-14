@@ -24,7 +24,7 @@ class TestLogin(unittest.TestCase):
         driver.find_element(By.ID,"login-button").click()
 
         response_message = driver.find_element(By.CLASS_NAME,"title").text
-        self.assertEqual(response_message, 'Products')
+        self.assertEqual(response_message, 'PRODUCTS')
 
     def test_login_account2(self): 
         driver = self.driver
@@ -37,7 +37,7 @@ class TestLogin(unittest.TestCase):
         time.sleep(3)
         driver.find_element(By.ID,"login-button").click()
 
-        response_message = driver.find_element(By.CLASS_NAME,"error-message-container error").text
+        response_message = driver.find_element(By.CLASS_NAME,"error-message-container").text
         self.assertEqual(response_message, 'Epic sadface: Sorry, this user has been locked out.')
 
     def test_login_account3(self): 
@@ -52,7 +52,7 @@ class TestLogin(unittest.TestCase):
         driver.find_element(By.ID,"login-button").click()
 
         response_message = driver.find_element(By.CLASS_NAME,"title").text
-        self.assertEqual(response_message, 'Products')
+        self.assertEqual(response_message, 'PRODUCTS')
 
     def test_login_account4(self): 
         driver = self.driver
@@ -64,9 +64,10 @@ class TestLogin(unittest.TestCase):
         driver.find_element(By.ID,"password").send_keys("secret_sauce") # isi password
         time.sleep(3)
         driver.find_element(By.ID,"login-button").click()
+        time.sleep(8)
 
         response_message = driver.find_element(By.CLASS_NAME,"title").text
-        self.assertEqual(response_message, 'Products')
+        self.assertEqual(response_message, 'PRODUCTS')
 
 
 unittest.main()
